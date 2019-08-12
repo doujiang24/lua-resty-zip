@@ -32,8 +32,9 @@ function _M.compress(txt, level)
     buflen[0] = n
     local res = zlib.compress2(buf, buflen, txt, #txt, level or 1)
 
-    assert(res == 0)
-    return ffi_str(buf, buflen[0])
+    if res == 0 then
+        return ffi_str(buf, buflen[0])
+    end
 end
 
 
@@ -43,8 +44,9 @@ function _M.uncompress(comp, n)
     buflen[0] = n
     local res = zlib.uncompress(buf, buflen, comp, #comp)
 
-    assert(res == 0)
-    return ffi_str(buf, buflen[0])
+    if res == 0 then
+        return ffi_str(buf, buflen[0])
+    end
 end
 
 

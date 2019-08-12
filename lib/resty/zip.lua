@@ -34,8 +34,6 @@ function _M.compress(txt, level)
 
     if res == 0 then
         return ffi_str(buf, buflen[0])
-    else
-        return nil
     end
 end
 
@@ -48,8 +46,6 @@ function _M.uncompress(comp, n)
 
     if res == 0 then
         return ffi_str(buf, buflen[0])
-    else
-        return nil
     end
 end
 
